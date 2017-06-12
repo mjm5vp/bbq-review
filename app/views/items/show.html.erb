@@ -1,0 +1,9 @@
+<h1>Restaurants</h1>
+
+<%= link_to "(+)", new_city_item_location_path(@city, @item)%>
+
+  <% @locations.each do |location| %>
+    <p>
+      <%= link_to location.name, city_item_location_path(@city, @item, location) %>
+    </p>
+  <% end %>
