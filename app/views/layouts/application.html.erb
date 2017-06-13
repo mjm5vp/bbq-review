@@ -4,24 +4,65 @@
     <title>BbqReview</title>
     <%= csrf_meta_tags %>
 
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+<body>
+  <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">BBQ Review</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="<%= cities_path %>">Cities</a></li>
+      <!-- <li><a href="#">Page 2</a></li> -->
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
 
-  <body>
+      <% if !current_user %>
+        <li><a href= "<%= new_user_registration_path %>" ><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="<%= new_user_session_path %>"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <!-- <li><%= link_to "Sign up", new_user_registration_path %></span></li>
+        <li><span class: "glyphicon glyphicon-log-in"><%= link_to "Login", new_user_session_path %></span></li> -->
+        <!-- <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %> -->
+      <% else %>
+        <li><a href="<%= edit_user_registration_path %>"><span class="glyphicon"></span><%= current_user.email %></a></li>
+        <li><%= link_to "SignOut", destroy_user_session_path, :method => :delete, :class => "glyphicon glyphicon-log-out" %></li>
+        <!-- <li></li> -->
 
-    <% if !current_user %>
-      <%= link_to "Sign up", new_user_registration_path %>
-      <%= link_to "Sign in", new_user_session_path %>
-    <% else %>
-      <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-      <%= current_user.email %>
-    <% end %>
-    
-    <%= link_to "All Cities", cities_path%>
+      <% end %>
+    </ul>
+  </div>
+</nav>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+
+    <!-- <div class="container-fluid"> -->
+      <!-- <div class="jumbotron"> -->
+        <!-- <img src="https://static1.squarespace.com/static/5336b2eae4b035f75f2935b8/t/5367f630e4b0b47b79947059/1399322167319/DBA-BBQPlate.jpg?format=2500w"> -->
+        <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> -->
+      <!-- </div> -->
+    <!-- </div> -->
+
+
+
+
+    <!-- <p class="notice"><%= notice %></p> -->
+    <!-- <p class="alert"><%= alert %></p> -->
+
+
 
     <%= yield %>
   </body>

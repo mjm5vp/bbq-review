@@ -1,12 +1,28 @@
-<h1>All Cities</h1>
+<div class="container-fluid">
+   <div class="col-md-12 padding-0 big-pic">
+     <img class="img-responsive the-pic" src="https://static1.squarespace.com/static/5336b2eae4b035f75f2935b8/t/5367f630e4b0b47b79947059/1399322167319/DBA-BBQPlate.jpg?format=2500w" alt="BBQ">
+     <!-- <img src="https://static1.squarespace.com/static/5336b2eae4b035f75f2935b8/t/5367f630e4b0b47b79947059/1399322167319/DBA-BBQPlate.jpg?format=2500w" class="img-responsive"/> -->
+   </div>
+</div>
 
-<%= link_to "(+)", new_city_path%>
+
+
 
 
   <% @cities.each do |city| %>
-    <div class="city">
-      <a href="/cities/<%= city.id %>">
-        <%= city.name %>
-      </a>
+    <div class="col-sm-2">
+      <div class="thumbnail">
+        <a href="/cities/<%= city.id %>">
+          <img src="<%= city.img_url %>" alt="Fjords" style="width:100%">
+          <div class="caption">
+            <p><%= city.name %></p>
+          </div>
+        </a>
+      </div>
     </div>
   <% end %>
+
+  
+
+
+<%= link_to "(+)", new_city_path%>

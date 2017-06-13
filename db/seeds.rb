@@ -10,15 +10,27 @@ City.destroy_all
 Item.destroy_all
 Location.destroy_all
 
-Gold.destroy_all
-Silver.destroy_all
-Bronze.destroy_all
-
 Favorite.destroy_all
+Comment.destroy_all
+
+User.destroy_all
+
+
 
 dc = City.create!(name: "DC", img_url: "https://www.foley.com/files/Office/8766eedf-e4b8-42fe-9c37-4f8383686c0d/Presentation/OfficePhoto/washingtondc.jpg")
-arlington = City.create!(name: "Arlington", img_url: "https://www.apartmentguide.com/blog/wp-content/uploads/2015/09/Arlington-Virginia-Neighborhoods-A-Guide-Clarendon.jpg")
 nashville = City.create!(name: "Nashville", img_url: "http://magsonthemove.com/wp-content/uploads/2015/07/10970371685_0194391c51_o.jpg")
+arlington = City.create!(name: "Arlington", img_url: "https://www.apartmentguide.com/blog/wp-content/uploads/2015/09/Arlington-Virginia-Neighborhoods-A-Guide-Clarendon.jpg")
+alexandria = City.create!(name: "Alexandria", img_url: "http://magsonthemove.com/wp-content/uploads/2015/07/10970371685_0194391c51_o.jpg")
+austin = City.create!(name: "Austin", img_url: "http://magsonthemove.com/wp-content/uploads/2015/07/10970371685_0194391c51_o.jpg")
+new_york = City.create!(name: "New York", img_url: "http://magsonthemove.com/wp-content/uploads/2015/07/10970371685_0194391c51_o.jpg")
+san_fran = City.create!(name: "San Francisco", img_url: "http://magsonthemove.com/wp-content/uploads/2015/07/10970371685_0194391c51_o.jpg")
+chicago = City.create!(name: "Chicago", img_url: "http://magsonthemove.com/wp-content/uploads/2015/07/10970371685_0194391c51_o.jpg")
+memphis = City.create!(name: "Memphis", img_url: "http://magsonthemove.com/wp-content/uploads/2015/07/10970371685_0194391c51_o.jpg")
+
+
+
+
+
 
 mac = Item.create!(name: "Mac & Cheese", img_url: "http://www.sweetrecipeas.com/wp-content/uploads/2013/02/pulledporkmacandcheese1.jpg", city: dc)
 brisket = Item.create!(name: "Brisket", img_url: "https://www.charbroil.com/community/wp-content/uploads/2016/06/DSC_0418-resized.jpg", city: dc)
