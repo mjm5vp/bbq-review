@@ -1,9 +1,58 @@
 <h1>Restaurants</h1>
 
+
 <%= link_to "(+)", new_city_item_location_path(@city, @item)%>
 
   <% @locations.each do |location| %>
+
+  <%@gold = location.favorites.find_by(user: current_user, medal: 1)%>
+  <%if @gold%>
+    <%@gold_loc = @gold.location%>
+  <%end%>
+
+  <%@silver = Favorite.find_by(user: current_user, medal: 2, location: location)%>
+  <%if @silver%>
+    <%@silver_loc = @silver.location%>
+  <%end%>
+
+  <%@bronze = Favorite.find_by(user: current_user, medal: 3, location: location)%>
+  <%if @bronze%>
+    <%@bronze_loc = @bronze.location%>
+  <%end%>
+
+
+
+
     <p>
       <%= link_to location.name, city_item_location_path(@city, @item, location) %>
+
+      <% if location.users.include? current_user %>
+
+        <% if @gold_loc == location %>
+          <%= link_to "&hearts;".html_safe, remove_favorite_city_item_location_path(@city, @item,location), method: :delete, class: "gold" %>
+          <%= link_to "&hearts;".html_safe, add_silver_city_item_location_path(@city, @item,location), method: :post, class: "no-fav" %>
+          <%= link_to "&hearts;".html_safe, add_bronze_city_item_location_path(@city, @item,location), method: :post, class: "no-fav" %>
+
+        <% elsif @silver_loc == location %>
+          <%= link_to "&hearts;".html_safe, add_gold_city_item_location_path(@city, @item,location), method: :post, class: "no-fav" %>
+          <%= link_to "&hearts;".html_safe, remove_favorite_city_item_location_path(@city, @item,location), method: :delete, class: "silver" %>
+          <%= link_to "&hearts;".html_safe, add_silver_city_item_location_path(@city, @item,location), method: :post, class: "no-fav" %>
+
+        <% elsif @bronze_loc == location %>
+          <%= link_to "&hearts;".html_safe, add_gold_city_item_location_path(@city, @item,location), method: :post, class: "no-fav" %>
+          <%= link_to "&hearts;".html_safe, add_silver_city_item_location_path(@city, @item,location), method: :post, class: "no-fav" %>
+          <%= link_to "&hearts;".html_safe, remove_favorite_city_item_location_path(@city, @item,location), method: :delete, class: "bronze" %>
+
+        <% else %>
+          <%= link_to "&hearts;".html_safe, add_gold_city_item_location_path(@city, @item,location), method: :post, class: "no-fav" %>
+          <%= link_to "&hearts;".html_safe, add_silver_city_item_location_path(@city, @item,location), method: :post, class: "no-fav" %>
+          <%= link_to "&hearts;".html_safe, add_bronze_city_item_location_path(@city, @item,location), method: :post, class: "no-fav" %>
+        <% end %>
+
+      <% else %>
+        <%= link_to "&hearts;".html_safe, add_gold_city_item_location_path(@city, @item,location), method: :post, class: "no-fav" %>
+        <%= link_to "&hearts;".html_safe, add_silver_city_item_location_path(@city, @item,location), method: :post, class: "no-fav" %>
+        <%= link_to "&hearts;".html_safe, add_bronze_city_item_location_path(@city, @item,location), method: :post, class: "no-fav" %>
+      <% end %>
     </p>
   <% end %>

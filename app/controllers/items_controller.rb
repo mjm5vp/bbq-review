@@ -46,21 +46,7 @@ class ItemsController < ApplicationController
     redirect_to items_path
   end
 
-  # def add_favorite
-  #   @song = Song.find(params[:id])
-  #   @favorite = Favorite.create!(song: @song, user: current_user)
-  #   # @favorite = current_user.favorites.create!(song: @song)
-  #   # @favorite = @song.favorites.create!(user: current_user)
-  #   # redirect_to artist_path(@song.artist)
-  #   redirect_to :back
-  # end
-  #
-  # def remove_favorite
-  #   @song = Song.find(params[:id])
-  #   @favorite = current_user.favorites.find_by(song: @song)
-  #   @favorite.destroy
-  #   redirect_to :back
-  # end
+
 
   private
   def item_params

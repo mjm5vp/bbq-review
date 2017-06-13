@@ -4,7 +4,7 @@ class CreateLocations < ActiveRecord::Migration[5.1]
       t.string :name
       t.string :address
       t.string :img_url
-      # t.references :item, index: true, foreign_key: true
+      t.references :item, index: true, foreign_key: true
       t.timestamps
     end
   end

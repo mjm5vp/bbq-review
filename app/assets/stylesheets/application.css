@@ -13,3 +13,25 @@
  *= require_tree .
  *= require_self
  */
+
+ a.gold {
+   text-decoration: none;
+   color: gold;
+ }
+
+ a.silver {
+   text-decoration: none;
+   color: silver;
+ }
+
+ a.bronze {
+   text-decoration: none;
+   color: brown;
+ }
+
+
+
+ a.no-fav {
+   text-decoration: none;
+   color: black;
+ }
