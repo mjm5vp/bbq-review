@@ -26,7 +26,8 @@ ActiveRecord::Schema.define(version: 20170613022316) do
 
   create_table "cities", force: :cascade do |t|
     t.string "name"
-    t.string "img_url"
+    t.string "thumbnail"
+    t.string "big_pic"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -71,6 +72,11 @@ ActiveRecord::Schema.define(version: 20170613022316) do
     t.string "name"
     t.string "address"
     t.string "img_url"
+    t.integer "gold"
+    t.integer "silver"
+    t.integer "bronze"
+    t.integer "total_score"
+    t.integer "total_votes"
     t.bigint "item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

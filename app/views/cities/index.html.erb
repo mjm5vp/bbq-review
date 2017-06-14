@@ -1,28 +1,30 @@
 <div class="container-fluid">
-   <div class="col-md-12 padding-0 big-pic">
-     <img class="img-responsive the-pic" src="https://static1.squarespace.com/static/5336b2eae4b035f75f2935b8/t/5367f630e4b0b47b79947059/1399322167319/DBA-BBQPlate.jpg?format=2500w" alt="BBQ">
-     <!-- <img src="https://static1.squarespace.com/static/5336b2eae4b035f75f2935b8/t/5367f630e4b0b47b79947059/1399322167319/DBA-BBQPlate.jpg?format=2500w" class="img-responsive"/> -->
+   <div class="col-md-12 padding-0 big-pic img-responsive">
+     <!-- <img class="img-responsive the-pic" src="https://static1.squarespace.com/static/5336b2eae4b035f75f2935b8/t/5367f630e4b0b47b79947059/1399322167319/DBA-BBQPlate.jpg?format=2500w" alt="BBQ"> -->
+      <h1 class="heading">BBQ Review</h1>
    </div>
 </div>
 
-
-
-
-
-  <% @cities.each do |city| %>
-    <div class="col-sm-2">
-      <div class="thumbnail">
-        <a href="/cities/<%= city.id %>">
-          <img src="<%= city.img_url %>" alt="Fjords" style="width:100%">
-          <div class="caption">
-            <p><%= city.name %></p>
-          </div>
-        </a>
-      </div>
+<div class="container-fluid all-cities">
+<% @cities.each do |city| %>
+  <!-- <div class="col-sm-2"> -->
+    <div class="thumb">
+      <a href="/cities/<%= city.id %>">
+        <img class="img-rounded"src="<%= city.thumbnail %>" alt="<%=city.name%>">
+        <div class="caption"><%= city.name %></div>
+      </a>
     </div>
-  <% end %>
+  <!-- </div> -->
+<% end %>
 
-  
-
-
-<%= link_to "(+)", new_city_path%>
+<!-- <div class="col-sm-2"> -->
+  <div class="thumb">
+    <a href="<%= new_city_path %>">
+      <img class="img-rounded"src="https://cdn3.iconfinder.com/data/icons/simple-toolbar/512/add_plus_new_user_green_page_file_up_text-512.png" alt="Add New City" style="width:100%">
+      <div class="caption">
+        <p>Add New City</p>
+      </div>
+    </a>
+  </div>
+<!-- </div> -->
+</div>

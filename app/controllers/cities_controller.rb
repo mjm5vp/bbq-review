@@ -6,13 +6,21 @@ class CitiesController < ApplicationController
 
   # new
   def new
-    @city = City.new
+    if current_user
+      @city = City.new
+    else
+      redirect_to new_user_session_path, alert: "You need to log in to do this."
+    end
   end
 
   # create
   def create
-    @city = City.create(city_params)
-    redirect_to city_path(@city)
+    @city = City.new(city_params)
+    if @city.save
+      redirect_to cities_path, notice: "City was successfully saved."
+    else
+      redirect_to new_city_path, alert: "City was not successfully saved."
+    end
   end
 
   #show

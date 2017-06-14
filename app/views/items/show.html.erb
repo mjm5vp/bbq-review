@@ -1,4 +1,30 @@
-<h1>Restaurants</h1>
+<h1><%= "#{@city.name} - #{@item.name} - Locations"%> <span class="edit-link"><%= link_to "(Edit)", edit_city_item_path%></span></h1>
+
+<div class="awards">
+  <div class="mine">
+    <div class="medal">
+      <p>Gold: <%#= @gold.name %></p>
+    </div>
+    <div class="medal">
+      <p>Silver: <%#= @silver.name%></p>
+    </div>
+    <div class="medal">
+      <p>Bronze: <%#= @bronze.name%></p>
+    </div>
+  </div>
+  <div class="community">
+    <div class="medal">
+      <p>Gold: <%#= @sorted_locations[0].name %></p>
+    </div>
+    <div class="medal">
+      <p>Silver: <%#= @sorted_locations[1].name%></p>
+    </div>
+    <div class="medal">
+      <p>Bronze: <%#= @sorted_locations[2].name%></p>
+    </div>
+  </div>
+
+</div>
 
 
 <%= link_to "(+)", new_city_item_location_path(@city, @item)%>
@@ -36,7 +62,7 @@
         <% elsif @silver_loc == location %>
           <%= link_to "&hearts;".html_safe, add_gold_city_item_location_path(@city, @item,location), method: :post, class: "no-fav" %>
           <%= link_to "&hearts;".html_safe, remove_favorite_city_item_location_path(@city, @item,location), method: :delete, class: "silver" %>
-          <%= link_to "&hearts;".html_safe, add_silver_city_item_location_path(@city, @item,location), method: :post, class: "no-fav" %>
+          <%= link_to "&hearts;".html_safe, add_bronze_city_item_location_path(@city, @item,location), method: :post, class: "no-fav" %>
 
         <% elsif @bronze_loc == location %>
           <%= link_to "&hearts;".html_safe, add_gold_city_item_location_path(@city, @item,location), method: :post, class: "no-fav" %>

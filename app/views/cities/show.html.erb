@@ -1,13 +1,36 @@
-<h1><%= @city.name %> Items</h1>
 
+<div class="container-fluid">
+   <div class="col-md-12 padding-0 big-pic-city" >
+     <!-- <img class="img-responsive the-pic" src="<%= @city.big_pic %>" alt="BBQ"> -->
+     <p class="heading-city"><%= @city.name %></p>
+   </div>
+</div>
+<div class="container-fluid all-cities">
+<% @items.each do |item| %>
+  <!-- <div class="col-sm-2" > -->
+    <div class="thumb" >
+      <a href="<%= "/cities/#{@city.id}/items/#{item.id}" %>">
+        <img class="img-rounded" src="<%= item.img_url %>" alt="<%=item.name%>" style="width:100%" >
+        <div class="caption">
+          <p><%= item.name %></p>
+        </div>
+      </a>
+    </div>
+  <!-- </div> -->
+<% end %>
 
+<!-- <div class="col-sm-2"> -->
+  <div class="thumb">
+    <a href="<%= new_city_item_path(@city) %>">
+      <img src="https://cdn3.iconfinder.com/data/icons/simple-toolbar/512/add_plus_new_user_green_page_file_up_text-512.png" alt="Add New City" style="width:100%">
+      <div class="caption">
+        <p></p>
+      </div>
+    </a>
+  </div>
+<!-- </div> -->
+</div>
 
-<%= link_to "Edit", edit_city_path(@city)%>
-
-  <% @items.each do |item| %>
-    <p>
-      <%= link_to item.name, city_item_path(@city, item)%>
-    </p>
-  <% end %>
-
-<%= link_to "(+)", new_city_item_path(@city)%>
+<style media="screen">
+  .big-pic-city { background-image: url(<%= @city.big_pic %>); }
+</style>

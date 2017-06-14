@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>BbqReview</title>
+    <title>BBQ Review</title>
     <%= csrf_meta_tags %>
 
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
@@ -20,13 +21,19 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 <body>
+
+
+  <% flash.each do |type, message| %>
+    <p class="flash <%= type %>"><%= message %></p>
+  <% end %>
+
   <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="#">BBQ Review</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
+      <li class="active"><a href="<%= root_path %>">Home</a></li>
       <li><a href="<%= cities_path %>">Cities</a></li>
       <!-- <li><a href="#">Page 2</a></li> -->
     </ul>
@@ -59,11 +66,12 @@
 
 
 
-    <!-- <p class="notice"><%= notice %></p> -->
-    <!-- <p class="alert"><%= alert %></p> -->
+
 
 
 
     <%= yield %>
+
+
   </body>
 </html>

@@ -2,7 +2,8 @@ class CreateCities < ActiveRecord::Migration[5.1]
   def change
     create_table :cities do |t|
       t.string :name
-      t.string :img_url
+      t.string :thumbnail
+      t.string :big_pic
 
       t.timestamps
     end

@@ -1,10 +1,17 @@
+<% @city.errors.full_messages.each do |message| %>
+  <p><%= message %></p>
+<% end %>
+
 <%= form_for @city do |f| %>
 
   <%= f.label :name %>
   <%= f.text_field :name %>
   <br>
-  <%= f.label :img_url %>
-  <%= f.text_field :img_url %>
+  <%= f.label :thumbnail %>
+  <%= f.text_field :thumbnail %>
+  <br>
+  <%= f.label :"Large Picture" %>
+  <%= f.text_field :big_pic %>
   <br>
   <%= f.submit %>
 

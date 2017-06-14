@@ -1,3 +1,7 @@
+<% @location.errors.full_messages.each do |message| %>
+  <p><%= message %></p>
+<% end %>
+
 <%= form_for [@city, @item, @location] do |f| %>
 
   <%= f.label :name %>
