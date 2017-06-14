@@ -51,24 +51,17 @@ class ItemsController < ApplicationController
     if current_user
       puts "current User"
       current_user.favorites.each do |favorite|
-        puts "favorite"
         # if favorite.location.item = @item
           @locations.each do |loc|
-            puts "location"
             if favorite.location == loc
-              puts "favorite = loc"
-              puts favorite.medal
-              if favorite.medal == 1
-                puts "set User_gold"
+              case favorite.medal
+              when 1
                 @user_gold = loc.favorites.find_by(user: current_user, medal: 1)
-              elsif favorite.medal == 2
-                puts "set User_silver"
+              when 2
                 @user_silver = loc.favorites.find_by(user: current_user, medal: 2)
-              elsif favorite.medal == 3
-                puts "set User_bronze"
+              when 3
                 @user_bronze = loc.favorites.find_by(user: current_user, medal: 3)
               else
-                puts "no user medal set"
               end
             end
           end
@@ -78,7 +71,7 @@ class ItemsController < ApplicationController
       @user_gold_loc = nil
       @user_silver_loc = nil
       @user_bronze_loc = nil
-      
+
       if @user_gold != nil
         @user_gold_loc = @user_gold.location
       end

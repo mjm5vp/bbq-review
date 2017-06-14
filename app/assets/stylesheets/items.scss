@@ -6,3 +6,43 @@
 .edit-link{
   font-size: 15px;
 }
+
+.awards{
+  height: 200px;
+  width: cover;
+  background-color: red;
+  display: flex;
+  justify-content: center;
+}
+
+.mine{
+  margin: 0 300px 0px 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.community{
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.medal-holder{
+  display:flex;
+  flex-direction: row;
+}
+
+.medal{
+  height: 50px;
+  width: 50px;
+}
+
+.medal-winner{
+  padding: 15px 0px;
+  width: 200px;
+  text-decoration: none;
+  font-size: 20px;
+
+}

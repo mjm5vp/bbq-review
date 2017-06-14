@@ -1,39 +1,67 @@
 <h1><%= "#{@city.name} - #{@item.name} - Locations"%> <span class="edit-link"><%= link_to "(Edit)", edit_city_item_path%></span></h1>
 
 <div class="awards">
+
   <div class="mine">
-    <div class="medal">
+
+    <div class="medal-holder">
+      <%= image_tag "gold_medal.png", :class => "medal"%>
       <% if @user_gold_loc %>
-        <p>Gold: <%= @user_gold_loc.name %></p>
+        <p class="medal-winner"><%= link_to @user_gold_loc.name, city_item_location_path(@city, @item, @user_gold_loc)%></p>
       <% else %>
-        <p>Gold: TBD</p>
+        <p class="medal-winner">TBD</p>
       <% end %>
     </div>
-    <div class="medal">
+
+    <div class="medal-holder">
+      <%= image_tag "silver_medal.png", :class => "medal"%>
       <% if @user_silver_loc %>
-        <p>Silver: <%= @user_silver_loc.name %></p>
+        <p class="medal-winner"><%= link_to @user_silver_loc.name, city_item_location_path(@city, @item, @user_silver_loc) %></p>
       <% else %>
-        <p>Silver: TBD</p>
+        <p class="medal-winner">TBD</p>
       <% end %>
     </div>
-    <div class="medal">
+
+    <div class="medal-holder">
+      <%= image_tag "bronze_medal.png", :class => "medal"%>
       <% if @user_bronze_loc %>
-        <p>Bronze: <%= @user_bronze_loc.name %></p>
+        <p class="medal-winner"><%= link_to @user_bronze_loc.name, city_item_location_path(@city,@item,@user_bronze_loc) %></p>
       <% else %>
-        <p>Bronze: TBD</p>
+        <p class="medal-winner">TBD</p>
       <% end %>
     </div>
+
   </div>
+
   <div class="community">
-    <div class="medal">
-      <p>Gold: <%#= @sorted_locations[0].name %></p>
+
+    <div class="medal-holder">
+      <%= image_tag "gold_medal.png", :class => "medal"%>
+      <% if @sorted_locations[0] %>
+        <p class="medal-winner"><%= link_to @sorted_locations[0].name, city_item_location_path(@city,@item,@sorted_locations[0])%></p>
+      <% else %>
+        <p class="medal-winner">TBD</p>
+      <% end %>
     </div>
-    <div class="medal">
-      <p>Silver: <%#= @sorted_locations[1].name%></p>
+
+    <div class="medal-holder">
+      <%= image_tag "silver_medal.png", :class => "medal"%>
+      <% if @sorted_locations[1] %>
+        <p class="medal-winner"><%= link_to @sorted_locations[1].name, city_item_location_path(@city,@item,@sorted_locations[1]) %></p>
+      <% else %>
+        <p class="medal-winner">TBD</p>
+      <% end %>
     </div>
-    <div class="medal">
-      <p>Bronze: <%#= @sorted_locations[2].name%></p>
+
+    <div class="medal-holder">
+      <%= image_tag "bronze_medal.png", :class => "medal"%>
+      <% if @sorted_locations[2] %>
+        <p class="medal-winner"><%= link_to @sorted_locations[2].name, city_item_location_path(@city,@item,@sorted_locations[2]) %></p>
+      <% else %>
+        <p class="medal-winner">TBD</p>
+      <% end %>
     </div>
+
   </div>
 
 </div>
