@@ -3,13 +3,25 @@
 <div class="awards">
   <div class="mine">
     <div class="medal">
-      <p>Gold: <%#= @gold.name %></p>
+      <% if @user_gold_loc %>
+        <p>Gold: <%= @user_gold_loc.name %></p>
+      <% else %>
+        <p>Gold: TBD</p>
+      <% end %>
     </div>
     <div class="medal">
-      <p>Silver: <%#= @silver.name%></p>
+      <% if @user_silver_loc %>
+        <p>Silver: <%= @user_silver_loc.name %></p>
+      <% else %>
+        <p>Silver: TBD</p>
+      <% end %>
     </div>
     <div class="medal">
-      <p>Bronze: <%#= @bronze.name%></p>
+      <% if @user_bronze_loc %>
+        <p>Bronze: <%= @user_bronze_loc.name %></p>
+      <% else %>
+        <p>Bronze: TBD</p>
+      <% end %>
     </div>
   </div>
   <div class="community">
@@ -31,7 +43,7 @@
 
   <% @locations.each do |location| %>
 
-  <%@gold = location.favorites.find_by(user: current_user, medal: 1)%>
+  <!-- <%@gold = location.favorites.find_by(user: current_user, medal: 1)%>
   <%if @gold%>
     <%@gold_loc = @gold.location%>
   <%end%>
@@ -44,7 +56,7 @@
   <%@bronze = Favorite.find_by(user: current_user, medal: 3, location: location)%>
   <%if @bronze%>
     <%@bronze_loc = @bronze.location%>
-  <%end%>
+  <%end%> -->
 
 
 
@@ -52,19 +64,18 @@
     <p>
       <%= link_to location.name, city_item_location_path(@city, @item, location) %>
 
-      <% if location.users.include? current_user %>
-
-        <% if @gold_loc == location %>
+      <% if current_user %>
+        <% if @user_gold_loc == location %>
           <%= link_to "&hearts;".html_safe, remove_favorite_city_item_location_path(@city, @item,location), method: :delete, class: "gold" %>
           <%= link_to "&hearts;".html_safe, add_silver_city_item_location_path(@city, @item,location), method: :post, class: "no-fav" %>
           <%= link_to "&hearts;".html_safe, add_bronze_city_item_location_path(@city, @item,location), method: :post, class: "no-fav" %>
 
-        <% elsif @silver_loc == location %>
+        <% elsif @user_silver_loc == location %>
           <%= link_to "&hearts;".html_safe, add_gold_city_item_location_path(@city, @item,location), method: :post, class: "no-fav" %>
           <%= link_to "&hearts;".html_safe, remove_favorite_city_item_location_path(@city, @item,location), method: :delete, class: "silver" %>
           <%= link_to "&hearts;".html_safe, add_bronze_city_item_location_path(@city, @item,location), method: :post, class: "no-fav" %>
 
-        <% elsif @bronze_loc == location %>
+        <% elsif @user_bronze_loc == location %>
           <%= link_to "&hearts;".html_safe, add_gold_city_item_location_path(@city, @item,location), method: :post, class: "no-fav" %>
           <%= link_to "&hearts;".html_safe, add_silver_city_item_location_path(@city, @item,location), method: :post, class: "no-fav" %>
           <%= link_to "&hearts;".html_safe, remove_favorite_city_item_location_path(@city, @item,location), method: :delete, class: "bronze" %>

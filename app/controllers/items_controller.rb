@@ -31,6 +31,7 @@ class ItemsController < ApplicationController
     @item = @city.items.find(params[:id])
     @locations = @item.locations
 
+    #Community
     @locations.each do |location|
       location.gold = Favorite.where(location: location, medal: 1).count
       location.silver = Favorite.where(location: location, medal: 2).count
@@ -44,6 +45,49 @@ class ItemsController < ApplicationController
     end
 
     @sorted_locations.reverse!
+
+
+    #User
+    if current_user
+      puts "current User"
+      current_user.favorites.each do |favorite|
+        puts "favorite"
+        # if favorite.location.item = @item
+          @locations.each do |loc|
+            puts "location"
+            if favorite.location == loc
+              puts "favorite = loc"
+              puts favorite.medal
+              if favorite.medal == 1
+                puts "set User_gold"
+                @user_gold = loc.favorites.find_by(user: current_user, medal: 1)
+              elsif favorite.medal == 2
+                puts "set User_silver"
+                @user_silver = loc.favorites.find_by(user: current_user, medal: 2)
+              elsif favorite.medal == 3
+                puts "set User_bronze"
+                @user_bronze = loc.favorites.find_by(user: current_user, medal: 3)
+              else
+                puts "no user medal set"
+              end
+            end
+          end
+        end
+      end
+
+      @user_gold_loc = nil
+      @user_silver_loc = nil
+      @user_bronze_loc = nil
+      
+      if @user_gold != nil
+        @user_gold_loc = @user_gold.location
+      end
+      if @user_silver
+        @user_silver_loc = @user_silver.location
+      end
+      if @user_bronze
+        @user_bronze_loc = @user_bronze.location
+      end
 
 
 
