@@ -1,11 +1,23 @@
-<h1><%= @location.name%> - Comments</h1>
+<div class="container">
 
-<p><%= @location.address%></p>
 
-<%= link_to "(Edit)", edit_city_item_location_path(@city,@item,@location)%>
 
+<h1><%= @location.name %> <span class="edit-link"><%= link_to "(Edit)", edit_city_item_path%></span></h1>
+
+<br>
+<p>
+  <%= @location.address%>
+</p>
+
+
+
+<%= link_to "Add Comment", new_city_item_location_comment_path(@city,@item,@location)%>
+  <br>
+  <p>Comments:</p>
   <% @comments.each do |comment| %>
     <p>
       <%= comment.text%>
     </p>
   <% end %>
+
+</div>

@@ -7,20 +7,23 @@ Rails.application.routes.draw do
     resources :items do
       resources :locations do
 
-      member do
-        post 'add_gold'
-        delete 'remove_favorite'
-      end
+        member do
+          post 'add_gold'
+          delete 'remove_favorite'
+        end
 
-      member do
-        post 'add_silver'
-        delete 'remove_favorite'
-      end
+        member do
+          post 'add_silver'
+          delete 'remove_favorite'
+        end
 
-      member do
-        post 'add_bronze'
-        delete 'remove_favorite'
-      end
+        member do
+          post 'add_bronze'
+          delete 'remove_favorite'
+        end
+
+        resources :comments
+
     end
   end
 end

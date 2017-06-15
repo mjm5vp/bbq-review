@@ -2,12 +2,16 @@
 
 <div class="awards">
 
+  <div class="item-container">
+    <img class="item-show-image" src="<%= @item.img_url %>" alt="<%= @item.name%>" >
+  </div>
+
   <div class="mine">
 
     <div class="medal-holder">
       <%= image_tag "gold_medal.png", :class => "medal"%>
       <% if @user_gold_loc %>
-        <p class="medal-winner"><%= link_to @user_gold_loc.name, city_item_location_path(@city, @item, @user_gold_loc)%></p>
+        <%= link_to @user_gold_loc.name, city_item_location_path(@city, @item, @user_gold_loc), :class => "medal-winner"%>
       <% else %>
         <p class="medal-winner">TBD</p>
       <% end %>
@@ -16,7 +20,7 @@
     <div class="medal-holder">
       <%= image_tag "silver_medal.png", :class => "medal"%>
       <% if @user_silver_loc %>
-        <p class="medal-winner"><%= link_to @user_silver_loc.name, city_item_location_path(@city, @item, @user_silver_loc) %></p>
+        <%= link_to @user_silver_loc.name, city_item_location_path(@city, @item, @user_silver_loc), :class => "medal-winner" %>
       <% else %>
         <p class="medal-winner">TBD</p>
       <% end %>
@@ -25,7 +29,7 @@
     <div class="medal-holder">
       <%= image_tag "bronze_medal.png", :class => "medal"%>
       <% if @user_bronze_loc %>
-        <p class="medal-winner"><%= link_to @user_bronze_loc.name, city_item_location_path(@city,@item,@user_bronze_loc) %></p>
+        <%= link_to @user_bronze_loc.name, city_item_location_path(@city,@item,@user_bronze_loc), :class => "medal-winner" %>
       <% else %>
         <p class="medal-winner">TBD</p>
       <% end %>
@@ -38,7 +42,7 @@
     <div class="medal-holder">
       <%= image_tag "gold_medal.png", :class => "medal"%>
       <% if @sorted_locations[0] %>
-        <p class="medal-winner"><%= link_to @sorted_locations[0].name, city_item_location_path(@city,@item,@sorted_locations[0])%></p>
+        <%= link_to @sorted_locations[0].name, city_item_location_path(@city,@item,@sorted_locations[0]), :class => "medal-winner"%>
       <% else %>
         <p class="medal-winner">TBD</p>
       <% end %>
@@ -47,7 +51,7 @@
     <div class="medal-holder">
       <%= image_tag "silver_medal.png", :class => "medal"%>
       <% if @sorted_locations[1] %>
-        <p class="medal-winner"><%= link_to @sorted_locations[1].name, city_item_location_path(@city,@item,@sorted_locations[1]) %></p>
+        <%= link_to @sorted_locations[1].name, city_item_location_path(@city,@item,@sorted_locations[1]), :class => "medal-winner" %>
       <% else %>
         <p class="medal-winner">TBD</p>
       <% end %>
@@ -56,7 +60,7 @@
     <div class="medal-holder">
       <%= image_tag "bronze_medal.png", :class => "medal"%>
       <% if @sorted_locations[2] %>
-        <p class="medal-winner"><%= link_to @sorted_locations[2].name, city_item_location_path(@city,@item,@sorted_locations[2]) %></p>
+        <%= link_to @sorted_locations[2].name, city_item_location_path(@city,@item,@sorted_locations[2]), :class => "medal-winner" %>
       <% else %>
         <p class="medal-winner">TBD</p>
       <% end %>
@@ -67,57 +71,70 @@
 </div>
 
 
-<%= link_to "(+)", new_city_item_location_path(@city, @item)%>
 
+<div class="container-fluid all-cities">
   <% @locations.each do |location| %>
+    <!-- <div class="col-sm-2" > -->
+      <div class="thumb" >
 
-  <!-- <%@gold = location.favorites.find_by(user: current_user, medal: 1)%>
-  <%if @gold%>
-    <%@gold_loc = @gold.location%>
-  <%end%>
+          <p class="location-caption"><%= location.name %></p>
 
-  <%@silver = Favorite.find_by(user: current_user, medal: 2, location: location)%>
-  <%if @silver%>
-    <%@silver_loc = @silver.location%>
-  <%end%>
+        <a href="<%= "/cities/#{@city.id}/items/#{@item.id}/locations/#{location.id}" %>">
+          <img class="img-rounded location-img" src="<%= location.img_url %>" style="width:100%" >
 
-  <%@bronze = Favorite.find_by(user: current_user, medal: 3, location: location)%>
-  <%if @bronze%>
-    <%@bronze_loc = @bronze.location%>
-  <%end%> -->
+        </a>
 
+        <div class="medal-icon-holder">
 
+          <% if current_user %>
+            <% if @user_gold_loc == location %>
+              <%= link_to "&#8858;".html_safe, remove_favorite_city_item_location_path(@city, @item,location), method: :delete, class: "gold" %>
+              <%= link_to "&#8858;".html_safe, add_silver_city_item_location_path(@city, @item,location), method: :post, class: "no-fav" %>
+              <%= link_to "&#8858;".html_safe, add_bronze_city_item_location_path(@city, @item,location), method: :post, class: "no-fav" %>
 
+            <% elsif @user_silver_loc == location %>
+              <%= link_to "&#8858;".html_safe, add_gold_city_item_location_path(@city, @item,location), method: :post, class: "no-fav" %>
+              <%= link_to "&#8858;".html_safe, remove_favorite_city_item_location_path(@city, @item,location), method: :delete, class: "silver" %>
+              <%= link_to "&#8858;".html_safe, add_bronze_city_item_location_path(@city, @item,location), method: :post, class: "no-fav" %>
 
-    <p>
-      <%= link_to location.name, city_item_location_path(@city, @item, location) %>
+            <% elsif @user_bronze_loc == location %>
+              <%= link_to "&#8858;".html_safe, add_gold_city_item_location_path(@city, @item,location), method: :post, class: "no-fav" %>
+              <%= link_to "&#8858;".html_safe, add_silver_city_item_location_path(@city, @item,location), method: :post, class: "no-fav" %>
+              <%= link_to "&#8858;".html_safe, remove_favorite_city_item_location_path(@city, @item,location), method: :delete, class: "bronze" %>
 
-      <% if current_user %>
-        <% if @user_gold_loc == location %>
-          <%= link_to "&hearts;".html_safe, remove_favorite_city_item_location_path(@city, @item,location), method: :delete, class: "gold" %>
-          <%= link_to "&hearts;".html_safe, add_silver_city_item_location_path(@city, @item,location), method: :post, class: "no-fav" %>
-          <%= link_to "&hearts;".html_safe, add_bronze_city_item_location_path(@city, @item,location), method: :post, class: "no-fav" %>
+            <% else %>
+              <%= link_to "&#8858;".html_safe, add_gold_city_item_location_path(@city, @item,location), method: :post, class: "no-fav" %>
+              <%= link_to "&#8858;".html_safe, add_silver_city_item_location_path(@city, @item,location), method: :post, class: "no-fav" %>
+              <%= link_to "&#8858;".html_safe, add_bronze_city_item_location_path(@city, @item,location), method: :post, class: "no-fav" %>
+            <% end %>
 
-        <% elsif @user_silver_loc == location %>
-          <%= link_to "&hearts;".html_safe, add_gold_city_item_location_path(@city, @item,location), method: :post, class: "no-fav" %>
-          <%= link_to "&hearts;".html_safe, remove_favorite_city_item_location_path(@city, @item,location), method: :delete, class: "silver" %>
-          <%= link_to "&hearts;".html_safe, add_bronze_city_item_location_path(@city, @item,location), method: :post, class: "no-fav" %>
+          <% else %>
+            <%= link_to "&#8858;".html_safe, add_gold_city_item_location_path(@city, @item,location), method: :post, class: "no-fav" %>
+            <%= link_to "&#8858;".html_safe, add_silver_city_item_location_path(@city, @item,location), method: :post, class: "no-fav" %>
+            <%= link_to "&#8858;".html_safe, add_bronze_city_item_location_path(@city, @item,location), method: :post, class: "no-fav" %>
+          <% end %>
+        </div>
 
-        <% elsif @user_bronze_loc == location %>
-          <%= link_to "&hearts;".html_safe, add_gold_city_item_location_path(@city, @item,location), method: :post, class: "no-fav" %>
-          <%= link_to "&hearts;".html_safe, add_silver_city_item_location_path(@city, @item,location), method: :post, class: "no-fav" %>
-          <%= link_to "&hearts;".html_safe, remove_favorite_city_item_location_path(@city, @item,location), method: :delete, class: "bronze" %>
-
-        <% else %>
-          <%= link_to "&hearts;".html_safe, add_gold_city_item_location_path(@city, @item,location), method: :post, class: "no-fav" %>
-          <%= link_to "&hearts;".html_safe, add_silver_city_item_location_path(@city, @item,location), method: :post, class: "no-fav" %>
-          <%= link_to "&hearts;".html_safe, add_bronze_city_item_location_path(@city, @item,location), method: :post, class: "no-fav" %>
-        <% end %>
-
-      <% else %>
-        <%= link_to "&hearts;".html_safe, add_gold_city_item_location_path(@city, @item,location), method: :post, class: "no-fav" %>
-        <%= link_to "&hearts;".html_safe, add_silver_city_item_location_path(@city, @item,location), method: :post, class: "no-fav" %>
-        <%= link_to "&hearts;".html_safe, add_bronze_city_item_location_path(@city, @item,location), method: :post, class: "no-fav" %>
-      <% end %>
-    </p>
+      </div>
+    <!-- </div> -->
   <% end %>
+
+  <!-- <div class="col-sm-2"> -->
+    <div class="thumb">
+      <p class="location-caption">Add New Location</p>
+      <a href="<%= new_city_item_location_path(@city,@item) %>">
+        <img src="https://cdn3.iconfinder.com/data/icons/simple-toolbar/512/add_plus_new_user_green_page_file_up_text-512.png" alt="Add New Location"style="width:100%">
+        <div class="caption">
+          <p></p>
+        </div>
+      </a>
+    </div>
+
+
+
+
+
+
+
+  <!-- </div> -->
+  </div>

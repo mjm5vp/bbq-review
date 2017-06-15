@@ -30,7 +30,7 @@ class LocationsController < ApplicationController
     @city = City.find(params[:city_id])
     @item = @city.items.find(params[:item_id])
     @location = @item.locations.find(params[:id])
-    @favs = current_user.locations
+    # @favs = current_user.locations
     @comments = @location.comments
   end
 

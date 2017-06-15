@@ -2,14 +2,22 @@
   <p><%= message %></p>
 <% end %>
 
-<%= form_for [@city,@item] do |f| %>
 
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+<div class="container">
+<%= form_for [@city,@item] do |f| %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control form", placeholder:"Name"  %>
+  </div>
+
   <br>
-  <%= f.label :img_url %>
-  <%= f.text_field :img_url %>
-  <br>
-  <%= f.submit %>
+
+  <div class="form-group">
+    <%= f.label :"Photo URL" %>
+    <%= f.text_field :img_url, class: "form-control", placeholder:"Photo URL" %>
+</div>
+
+    <br>
+    <%= f.submit %>
 
 <% end %>

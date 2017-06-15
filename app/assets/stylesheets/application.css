@@ -70,16 +70,25 @@
  a.gold {
    text-decoration: none;
    color: gold;
+   font-weight: 800px;
+   font-size: 20px;
+   text-align: center;
  }
 
  a.silver {
    text-decoration: none;
    color: silver;
+   font-weight: 800px;
+   font-size: 20px;
+   text-align: center;
  }
 
  a.bronze {
    text-decoration: none;
    color: brown;
+   font-weight: 800px;
+   font-size: 20px;
+   text-align: center;
  }
 
 .navbar{
@@ -100,7 +109,10 @@
 
 a.no-fav {
   text-decoration: none;
+  font-weight: 800px;
+  font-size: 20px;
   color: black;
+
 }
 
 .container-fluid{
@@ -148,3 +160,27 @@ a.no-fav {
   text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
   font-weight: 800;
  }
+
+.mylink{
+  margin:0;
+  padding: 1px 22px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+  background-color: white;
+  color: black;
+  /*border: 2px solid #f44336;*/
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+}
+
+
+.mylink:hover {
+    background-color: red;
+    color: white;
+}

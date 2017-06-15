@@ -2,17 +2,31 @@
   <p><%= message %></p>
 <% end %>
 
+<div class="container">
 <%= form_for @city do |f| %>
 
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control form", placeholder:"Name" %>
+  </div>
+
   <br>
-  <%= f.label :thumbnail %>
-  <%= f.text_field :thumbnail %>
+
+  <div class="form-group">
+    <%= f.label :"Thumbnail url"%>
+    <%= f.text_field :thumbnail, class: "form-control", placeholder:"Thumbnail url" %>
+  </div>
+
   <br>
-  <%= f.label :"Large Picture" %>
-  <%= f.text_field :big_pic %>
+
+  <div class="form-group">
+    <%= f.label :"Large Picture url (Greater than 1280px long)" %>
+    <%= f.text_field :big_pic, class: "form-control", placeholder:"Large Picture url" %>
+  </div>
+
   <br>
+
   <%= f.submit %>
 
 <% end %>
+</div>

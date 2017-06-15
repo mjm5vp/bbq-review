@@ -1,6 +1,11 @@
-<h2>Edit Item</h2>
+
+<div class="container">
+  <h2>Edit Item</h2>
+</div>
+
 
 
 <%= render 'form' %>
+<br>
 
-<%= link_to 'Delete!', city_item_path(@city,@item), method: :delete, class: 'delete' %>
+<%= link_to 'Delete', city_item_path(@city,@item), method: :delete, :class => "btn btn-inverse mylink" %>
