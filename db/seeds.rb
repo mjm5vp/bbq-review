@@ -88,6 +88,18 @@ item_seed = [
   {
     name: "Ribs",
     img_url: "https://media-cdn.tripadvisor.com/media/photo-s/06/48/48/b7/bbq-pork-spare-ribsmmmmm.jpg"
+  },
+  {
+    name: "Mashed Potatoes",
+    img_url: "http://food.fnr.sndimg.com/content/dam/images/food/fullset/2010/7/21/4/FNM_090110-WN-Dinners-001_s4x3.jpg.rend.hgtvcom.616.462.jpeg"
+  },
+  {
+    name: "Chicken",
+    img_url: "http://www.olgasflavorfactory.com/wp-content/uploads/2014/08/Slow-Cooker-BBQ-Pulled-Chicken-1-8.jpg"
+  },
+  {
+    name: "Pork Belly",
+    img_url: "http://countrywoodsmoke.com/wp-content/uploads/2014/06/belly4.jpg"
   }
 ]
 
@@ -121,6 +133,16 @@ dc_locations = [
     name: "DCity Smokehouse",
     address: "203 Florida Ave NW, Washington, DC 20001",
     img_url: "https://lh3.googleusercontent.com/lO9sjWFiflS1kNczi7y-Au5FV2N1NvRCwkec0I-JlznRZ3VUH7DzyulpDEi5aD9O=w384-h384-n"
+  },
+  {
+    name: "Smoking Kow BBQ",
+    address: "Mobile",
+    img_url: "https://pbs.twimg.com/profile_images/517327167592493056/atWmXZF7.png"
+  },
+  {
+    name: "Fat Pete's BBQ",
+    address: "3407 Connecticut Ave NW, Washington, DC 20008",
+    img_url: "http://fatpetesbbq.com/wp-content/uploads/2016/10/College_park_hero.jpg"
   }
 ]
 
