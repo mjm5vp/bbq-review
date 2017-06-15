@@ -154,13 +154,13 @@ end
 dc_items.each_with_index do |dc_item, i|
   all_users.each do |us|
 
-    loc1_id = (rand(1..dc_items.length) + (i*6))
+    loc1_id = (rand(1..dc_items.length) + (i*all_users.length))
     puts "loc1 #{loc1_id}"
     fav1 = Favorite.create!(medal: 1, location_id: loc1_id , user: us)
 
-    loc2_id = (rand(1..dc_items.length) + (i*6))
+    loc2_id = (rand(1..dc_items.length) + (i*all_users.length))
     loop do
-      loc2_id = (rand(1..dc_items.length) + (i*6))
+      loc2_id = (rand(1..dc_items.length) + (i*all_users.length))
       break if loc1_id != loc2_id
     end
 
@@ -168,9 +168,9 @@ dc_items.each_with_index do |dc_item, i|
 
 
     fav2 = Favorite.create!(medal: 2, location_id: loc2_id, user: us)
-    loc3_id = (rand(1..dc_items.length) + (i*6))
+    loc3_id = (rand(1..dc_items.length) + (i*all_users.length))
     loop do
-      loc3_id = (rand(1..dc_items.length) + (i*6))
+      loc3_id = (rand(1..dc_items.length) + (i*all_users.length))
       break if loc1_id != loc3_id && loc2_id != loc3_id
     end
 

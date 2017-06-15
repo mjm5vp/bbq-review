@@ -3,12 +3,20 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+.h1-title{
+  color: white;
+  font-size: 50px;
+  font-family: "Lobster", cursive;
+  text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
+  margin: 10px 10px 10px 20px;
+}
+
 .edit-link{
   font-size: 15px;
 }
 
 .awards{
-  height: 200px;
+  height: 300px;
   width: cover;
   background-color: black;
   display: flex;
@@ -69,8 +77,29 @@
 
 .location-caption{
   height: 20px;
+  // margin: 30px;
   text-align: center;
   color: white;
   text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
   font-weight: 800;
+}
+
+.thumb-location{
+  margin: 50px 10px;
+  width: 150px;
+  height: 138px;
+
+}
+
+.mine-title{
+  font-size: 20px;
+  text-decoration: underline;
+  // text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
+  font-weight: 800px;
+  font-family: "Lobster";
+  color: white;
+}
+
+.item-container{
+  margin: 50px 20px;
 }
