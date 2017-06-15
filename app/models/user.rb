@@ -5,7 +5,7 @@ class User < ApplicationRecord
   # has_many :locations, through: :golds
   # has_many :locations, through: :silvers
   # has_many :locations, through: :bronzes
-  has_many :favorites
+  has_many :favorites, dependent: :destroy
   has_many :locations, through: :favorites
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
