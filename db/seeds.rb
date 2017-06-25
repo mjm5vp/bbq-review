@@ -122,7 +122,7 @@ dc_locations = [
   {
     name: "BBQ Bus",
     address: "Mobile",
-    img_url: "https://pbs.twimg.com/profile_images/378800000208949831/1937ac3d47a425a35fe2439b26d5d356.jpeg"
+    img_url: "https://poecommunications.com/wp-content/uploads/2012/08/bbq-bus.jpg"
   },
   {
     name: "Hill Country Barbecue Market",

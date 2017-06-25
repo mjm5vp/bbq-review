@@ -22,10 +22,46 @@
    margin: 10px 10px 10px 20px;
  }
 
- .navbar-brand{
+ .nav-bar{
+   color: white;
+   margin: 0% 10%;
+   border-radius: 0px;
+   position: absolute;
+   top: 10px;
+   z-index: 2;
+   width: 80%;
+   background-color: black;
+   opacity: .8;
+   height: 50px;
+   border-radius: 2px;
+
+ }
+
+ .navbar-logo{
    font-family: "Lobster", cursive;
    text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
    color: white;
+   font-size: 30px;
+   /*padding-left: 5%;*/
+ }
+
+ .navbar-left{
+   float: left;
+   margin-left: 5%;
+
+ }
+
+ .nav-login{
+   float: right;
+   display: flex;
+   align-items: center;
+   text-decoration: none;
+   list-style: none;
+    color: white;
+ }
+
+ li{
+   margin: 0px 15px;
  }
 
  body{
@@ -106,15 +142,14 @@
  }
 
 .navbar{
-  color: white;
-  margin:0;
-  border-radius: 0px;
+
 }
 
 .big-pic{
   margin: 0;
-  height: 300px;
+  height: 600px;
   overflow: hidden;
+  position: relative;
 }
 
 .the-pic{
