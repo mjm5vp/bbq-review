@@ -14,6 +14,7 @@
  *= require_self
  */
 
+
  .mytest{
    color: white;
    font-size: 50px;
@@ -24,16 +25,16 @@
 
  .nav-bar{
    color: white;
-   margin: 0% 10%;
+   /*margin: 0% 10%;*/
    border-radius: 0px;
-   position: absolute;
+   /*position: absolute;*/
    top: 10px;
    z-index: 2;
-   width: 80%;
-   background-color: black;
-   opacity: .8;
+   width: 100%;
+   background-color: #000000;
+   opacity: .9;
    height: 50px;
-   border-radius: 2px;
+   /*border-radius: 2px;*/
 
  }
 
@@ -57,7 +58,19 @@
    align-items: center;
    text-decoration: none;
    list-style: none;
-    color: white;
+  color: white;
+   margin: 10px 0px ;
+ }
+
+ .link-text{
+   color: white;
+   font-size: 15px;
+
+ }
+
+ .glyphicon{
+   color: white;
+   font-size: 20px;
  }
 
  li{
@@ -232,4 +245,25 @@ a.no-fav {
 .mylink:hover {
     background-color: red;
     color: white;
+}
+
+
+@media only screen and (max-width: 500px) {
+    .navbar-logo{
+      font-size: 30px;
+
+    }
+    .link-text{
+      font-size: 10px;
+    }
+    .glyphicon{
+      font-size: 10px;
+
+    }
+    .all-cities{
+      justify-content: center;
+
+    }
+
+
 }

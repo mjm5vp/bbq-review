@@ -11,4 +11,8 @@ class ApplicationController < ActionController::Base
   # def no_method_error
   #   redirect_to root_url, notice: "The developer working on this didn't cover their butt appropriately. Our bad."
   # end
+
+  def home
+
+  end
 end

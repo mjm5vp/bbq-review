@@ -38,11 +38,11 @@
     <ul class="nav-login">
 
       <% if !current_user %>
-        <li><a href= "<%= new_user_registration_path %>" ><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        <li><a href="<%= new_user_session_path %>"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li><a class="link-text" href= "<%= new_user_registration_path %>" ><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a class="link-text" href="<%= new_user_session_path %>"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
 
       <% else %>
-        <li><a href="<%= edit_user_registration_path %>"><span class="glyphicon"></span><%= current_user.email %></a></li>
+        <li><a class="link-text" href="<%= edit_user_registration_path %>"><span class="glyphicon"></span><%= current_user.email %></a></li>
         <li><%= link_to "SignOut", destroy_user_session_path, :method => :delete, :class => "glyphicon glyphicon-log-out" %></li>
 
 
