@@ -45,17 +45,19 @@ body, html{
 
 
 .browse-button{
-  height: 75px;
-  width: 200px;
-  background-color: #9b9292;
+  height: 50px;
+  width: 150px;
+  background-color: black;
   border: 2px solid black;
   text-decoration: none;
   display: flex;
   justify-content: center;
   align-items: center;
-  opacity: .8;
+  opacity: .7;
   color: white;
   margin: 5% 0% 0% 0%;
+  font-family: 'Archivo', sans-serif;
+  border-radius: 5px;
 }
 
 .browse-button:hover{
@@ -69,8 +71,8 @@ body, html{
 
 .login-button{
   margin: 5% 10%;
-  height: 50px;
-  width: 200px;
+  height: 30px;
+  width: 150px;
   background-color: #9b9292;
   border: 2px solid black;
   text-decoration: none;
@@ -79,6 +81,9 @@ body, html{
   align-items: center;
   opacity: .8;
   color: white;
+  font-family: 'Archivo', sans-serif;
+  border-radius: 5px;
+
 }
 
 .login-button:hover{
