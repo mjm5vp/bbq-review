@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BBQ Review</title>
+    <%= csrf_meta_tags %>
+    <!-- favicon -->
+    <%= favicon_link_tag 'FaviconBBQ.png' %>
+
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <%= stylesheet_link_tag    'homes', media: 'all', 'data-turbolinks-track': 'reload' %>
+  </head>
+<body>
+
+
+<div class="landing-container">
+
+   <div class="landing-pic">
+
+      <h1 class="landing-heading">BBQ Review</h1>
+
+      <a class="browse-button" href= "<%= cities_path %>" ><span class="glyphicon glyphicon-user"></span>Browse</a>
+
+      <div class="user-buttons">
+
+        <a class="login-button" href="<%= new_user_session_path %>"><span class="glyphicon glyphicon-log-in"></span>Login</a>
+
+        <a class="login-button" href= "<%= new_user_registration_path %>" ><span class="glyphicon glyphicon-user"></span>Sign Up</a>
+
+      </div>
+
+
+
+
+   </div>
+
+
+
+</div>
